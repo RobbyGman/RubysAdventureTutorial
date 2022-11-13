@@ -94,13 +94,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6982084178593964875}
   - component: {fileID: 6982084178593964872}
+  - component: {fileID: 7445054661573506935}
   - component: {fileID: 6982084178593964868}
   - component: {fileID: 6982084178593964869}
-  - component: {fileID: 6982084178593964874}
   - component: {fileID: 6982084178593964871}
   - component: {fileID: 183533452884923571}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: HardEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300010, guid: 651c4abeb0812e74685da0e5a31c8dff, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5149592, g: 0, b: 0.9811321, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -175,6 +175,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &7445054661573506935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6982084178593964873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739f7a60211e6964f963a90c914c49b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  timeToChange: 2
+  vertical: 0
+  smokeEffect: {fileID: 7352749070198809362}
+  fixedEffect: {fileID: 7568068341957271153, guid: 35fd4435f7728ee4285526effd2fd97d, type: 3}
+  hitSound: {fileID: 8300000, guid: 4ecf2abcdd2987b4ab2773ac82a0f2de, type: 3}
+  fixedSound: {fileID: 8300000, guid: 4e356d8e36201c14da953082c4d569ab, type: 3}
 --- !u!50 &6982084178593964868
 Rigidbody2D:
   serializedVersion: 4
@@ -222,25 +241,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6629238, y: 0.73305863}
   m_EdgeRadius: 0
---- !u!114 &6982084178593964874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6982084178593964873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c355cf67d54abee4aae3b97fd7e93987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  timeToChange: 2
-  horizontal: 1
-  smokeEffect: {fileID: 7352749070198809362}
-  fixedEffect: {fileID: 7568068341957271153, guid: 35fd4435f7728ee4285526effd2fd97d, type: 3}
-  hitSound: {fileID: 8300000, guid: 683e01d57e63fe749866ca4fd3cc424c, type: 3}
-  fixedSound: {fileID: 8300000, guid: 4e356d8e36201c14da953082c4d569ab, type: 3}
 --- !u!95 &6982084178593964871
 Animator:
   serializedVersion: 4
@@ -251,7 +251,7 @@ Animator:
   m_GameObject: {fileID: 6982084178593964873}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 409982cc78ea2634aaa8c7c41bfa587a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 036ddabc41004f64fb3ddbbb3c505417, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

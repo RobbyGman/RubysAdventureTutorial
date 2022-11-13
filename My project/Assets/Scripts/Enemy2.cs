@@ -1,12 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
-	public float speed;
+    public float speed;
 	public float timeToChange;
-	public bool horizontal;
+	public bool vertical;
 
 	public ParticleSystem smokeEffect;
 	public ParticleSystem fixedEffect;
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 		rigidbody2d = GetComponent<Rigidbody2D>();
 		remainingTimeToChange = timeToChange;
 
-		direction = horizontal ? Vector2.right : Vector2.down;
+		direction = vertical ? Vector2.right : Vector2.down;
 
 		animator = GetComponent<Animator>();
 
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
 		RubyController controller = other.collider.GetComponent<RubyController>();
 		
 		if(controller != null)
-			controller.ChangeHealth(-1);
+			controller.ChangeHealth(-2);
 	}
 
 	public void Fix()

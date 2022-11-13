@@ -26,12 +26,13 @@ public class RubyController : MonoBehaviour
     
     Rigidbody2D rigidbody2d;
 
-    // Had problems with the old Input system so I went with a system im more familiar with
     Vector2 currentInput;
     
     Animator animator;
-    Vector2 lookDirection = new Vector2(1, 0);
+    Vector2 lookDirection = new Vector2(0, -1);
     AudioSource audioSource;
+    public Transform respawnPosition;
+    public ParticleSystem hitParticle;
     
     // Start is called before the first frame update
     void Start()
@@ -116,12 +117,24 @@ public class RubyController : MonoBehaviour
             animator.SetTrigger("Hit");
             audioSource.PlayOneShot(hitSound);
 
+            Instantiate(hitParticle, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+
         }
         
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         
+        if (currentHealth == 0)
+        {
+            Respawn();
+        }
         
         UIHealthBar.Instance.SetValue(currentHealth / (float)maxHealth);
+    }
+
+    void Respawn()
+    {
+        ChangeHealth(maxHealth);
+        transform.position = respawnPosition.position;
     }
     
     void Launch()
