@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,15 +12,15 @@ public class Enemy : MonoBehaviour
 	public ParticleSystem smokeEffect;
 	public ParticleSystem fixedEffect;
 	public AudioClip hitSound;
+	private int fixCount;
 	public AudioClip fixedSound;
-	
 	Rigidbody2D rigidbody2d;
 	float remainingTimeToChange;
 	Vector2 direction = Vector2.right;
-	bool repaired = false;
+	bool broken = true;
 	
 	Animator animator;
-	
+	private RubyController rubyController;
 	AudioSource audioSource;
 
 	// Start is called before the first frame update
@@ -33,12 +34,14 @@ public class Enemy : MonoBehaviour
 		animator = GetComponent<Animator>();
 
 		audioSource = GetComponent<AudioSource>();
+		GameObject rubyControllerObject = GameObject.FindWithTag("Player");
+		rubyController = rubyControllerObject.GetComponent<RubyController>();
 	}
 	
     // Update is called once per frame
 	void Update()
 	{
-		if(repaired)
+		if(!broken)
 		{
 			return;
 		}
@@ -62,21 +65,29 @@ public class Enemy : MonoBehaviour
 
 	void OnCollisionStay2D(Collision2D other)
 	{
-		if(repaired)
+		if(!broken)
 			return;
 		
 		RubyController controller = other.collider.GetComponent<RubyController>();
 		
 		if(controller != null)
+		{
 			controller.ChangeHealth(-1);
+		}
+
+		
 	}
 
 	public void Fix()
 	{
 		animator.SetTrigger("Fixed");
-		repaired = true;
-		
+		broken = false;
 		smokeEffect.Stop();
+
+		if (rubyController != null)
+		{
+			rubyController.FixedText(1);
+		}
 
 		rigidbody2d.simulated = false;
 		Instantiate(fixedEffect, transform.position + Vector3.up * 0.5f, Quaternion.identity);
