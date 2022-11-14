@@ -12,6 +12,9 @@ public class RubyController : MonoBehaviour
     public AudioClip hitSound;
     public AudioClip throwSound;
     public AudioClip Music;
+    public AudioClip Win;
+    public AudioClip Lose;
+    public AudioClip ammoSound;
 
     public int health
     {
@@ -34,6 +37,7 @@ public class RubyController : MonoBehaviour
     Vector2 lookDirection = new Vector2(0, -1);
     AudioSource audioSource;
     public ParticleSystem hitParticle;
+    public ParticleSystem ammoParticle;
     public TextMeshProUGUI fixedText;
     public TextMeshProUGUI cogsText;
     private int fixCount;
@@ -115,6 +119,7 @@ public class RubyController : MonoBehaviour
                 if (fixCount == 4)
                 {
                     SceneManager.LoadScene("Level 2");
+                    level = 2;
                 }
             }
         }
@@ -123,6 +128,8 @@ public class RubyController : MonoBehaviour
             if (gameOver == true)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                speed = 3.0f;
+                gameOver = false;
             }
         }
  
@@ -162,7 +169,11 @@ public class RubyController : MonoBehaviour
             gameOver = true;
             audioSource.Stop();
 
+            audioSource.PlayOneShot(Lose);
+
             Destroy(gameObject.GetComponent<SpriteRenderer>());
+            Destroy(gameObject.GetComponent<BoxCollider2D>());
+            speed = 0;
         }
         
         UIHealthBar.Instance.SetValue(currentHealth / (float)maxHealth);
@@ -180,11 +191,14 @@ public class RubyController : MonoBehaviour
         }
         else if (level == 2 && fixCount == 4)
         {
+            audioSource.Stop();
             winTextObject.SetActive(true);
+
+            audioSource.PlayOneShot(Win);
+
             gameOver = true;
             level = 1;
             speed = 0;
-            audioSource.Stop();
         } 
     }
 
@@ -220,6 +234,16 @@ public class RubyController : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
     }
-
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Ammo")
+        {
+            audioSource.PlayOneShot(ammoSound);
+            cogsCount += 4;
+            SetCogText();
+            Destroy(other.gameObject);
+        }
+    }
 
 }

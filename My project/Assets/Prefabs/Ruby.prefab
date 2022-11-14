@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 757271046144738374}
   m_Layer: 3
   m_Name: Ruby
-  m_TagString: RubyController
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,14 +149,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be5c9220d0d0504591c18793dd6ad18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 5
   maxHealth: 5
   projectilePrefab: {fileID: 540222671576581450, guid: 5847c61d20e6ce04dbc333e41dad3ec2, type: 3}
   hitSound: {fileID: 8300000, guid: c7d3a91ac32abbe47a8931a8ffc37bc6, type: 3}
   throwSound: {fileID: 8300000, guid: c87de0cae68cdbb409eec8ba23a860d0, type: 3}
   Music: {fileID: 8300000, guid: e8cb00566f82df74e873a4f9a4c0d78e, type: 3}
+  Win: {fileID: 8300000, guid: 6125c0871adade14080b790c8451313b, type: 3}
+  Lose: {fileID: 8300000, guid: 99de679ef709aec418cb852f57959257, type: 3}
+  ammoSound: {fileID: 8300000, guid: 173a14cf06354c643b46b235f2a4f974, type: 3}
   timeInvincible: 2
   hitParticle: {fileID: 654284162426797010, guid: 8bf7b1390b946bb419c240d327f8311e, type: 3}
+  ammoParticle: {fileID: 3822058789790101262, guid: be0a50144cbd8fc448ef13fa4bdea6e4, type: 3}
   fixedText: {fileID: 0}
   cogsText: {fileID: 0}
   winTextObject: {fileID: 0}
