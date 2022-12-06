@@ -23408,6 +23408,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 478631574}
+    - target: {fileID: 3379237306888255333, guid: 51fd3c32656f5c64fbcbde4a534c700c, type: 3}
+      propertyPath: m_Mass
+      value: 0.27141055
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379237306888255333, guid: 51fd3c32656f5c64fbcbde4a534c700c, type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379237306888255333, guid: 51fd3c32656f5c64fbcbde4a534c700c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379237306888255333, guid: 51fd3c32656f5c64fbcbde4a534c700c, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3379237306888255336, guid: 51fd3c32656f5c64fbcbde4a534c700c, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -23667,6 +23683,10 @@ PrefabInstance:
       propertyPath: arrowPos
       value: 
       objectReference: {fileID: 1933291711}
+    - target: {fileID: 7502588202984106164, guid: 651f452ecf2bea64da76b596cc9a1e90, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7502588202984106167, guid: 651f452ecf2bea64da76b596cc9a1e90, type: 3}
       propertyPath: m_RootOrder
       value: 13
