@@ -10,6 +10,7 @@ public class scientist : MonoBehaviour
     private float distance;
     Animator animator;
     private RubyController rubyController;
+    public AudioClip contact;
     AudioSource audioSource;
     public ParticleSystem hit;
     // Start is called before the first frame update
@@ -45,6 +46,7 @@ public class scientist : MonoBehaviour
 		if(controller != null)
 		{
 			controller.ChangeHealth(-1);
+            audioSource.PlayOneShot(contact);
             Instantiate(hit, transform.position + Vector3.up * 0.5f, Quaternion.identity);
 		}
 

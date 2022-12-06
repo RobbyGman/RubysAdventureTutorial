@@ -154,7 +154,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 540222671576581450, guid: 5847c61d20e6ce04dbc333e41dad3ec2, type: 3}
   hitSound: {fileID: 8300000, guid: c7d3a91ac32abbe47a8931a8ffc37bc6, type: 3}
   throwSound: {fileID: 8300000, guid: c87de0cae68cdbb409eec8ba23a860d0, type: 3}
-  Music: {fileID: 8300000, guid: e8cb00566f82df74e873a4f9a4c0d78e, type: 3}
+  Music: {fileID: 8300000, guid: cc227db5ed719bc46b1a0307f1d0f2da, type: 3}
   Win: {fileID: 8300000, guid: 6125c0871adade14080b790c8451313b, type: 3}
   Lose: {fileID: 8300000, guid: 99de679ef709aec418cb852f57959257, type: 3}
   ammoSound: {fileID: 8300000, guid: 173a14cf06354c643b46b235f2a4f974, type: 3}
@@ -197,7 +197,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.783
   m_Pitch: 1
   Loop: 1
   Mute: 0
