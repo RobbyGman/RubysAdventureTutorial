@@ -196,6 +196,9 @@ public class RubyController : MonoBehaviour
 
             audioSource.PlayOneShot(Win);
 
+            Destroy(gameObject.GetComponent<SpriteRenderer>());
+            Destroy(gameObject.GetComponent<BoxCollider2D>());
+            
             gameOver = true;
             level = 1;
             speed = 0;
